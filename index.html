@@ -7,132 +7,149 @@
 			content="A simple landing page about documentaries to practice HTML, CSS and JavaScript. Built by Camilla C." />
 		<title>Documentary Vault</title>
 		<!--Font-->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Boldonse&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-			rel="stylesheet" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+		<!--Bootstrap-->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+		<!--CSS-->
 		<link rel="stylesheet" href="/style.css" />
 	</head>
 	<body>
+
+		<!--Light mode change-->
+		<input type="checkbox" id="switch" />
+		<label for="switch">Light/Dark mode</label>
+
+		<!--Title/Oppening-->
 		<header>
-			<button class="theme-toggle">Change Theme 💡</button>
-			<h1>Milla's DocuVault</h1>
-			<h2 class="intro-subheading">
-				True stories. Strange people. And way to much cult leaders.
-			</h2>
-			<p class="intro-text">
-				Watching documentaries isn't just a hobby — it's a lifestyle.
-				From unsolved crimes to corporate scandals, disturbing cults to
-				forgotten icons, I've watched it all and then some. This page is
-				a love letter to the wildest real-life stories you could never
-				make up (but wish you could). Here's a sample from my
-				ever-growing list. Some of them broke my heart, others made me
-				scream at the screen. All of them made me Google things at 2
-				a.m.
-			</p>
+			<div class="title-section container">
+				<h1 class="intro-title text-center fw-bold">The Archive</h1>
+				<h2 class="intro-subheading text-center fw-light">Real stories. Real chaos. Carefully curated.</h2>
+				<p class="intro-text text-center lh-base">
+					A compact collection of documentaries I think are truly worth your time —
+					the strange, the brilliant, and the “wait… what?” ones.
+				</p>
+			</div>
 		</header>
-		<hr />
-		<h2>Some Favorites You Should Probably Watch</h2>
+			
+			
+		<!-- DOC CARDS-->
 		<section class="doc-grid">
 			<div class="grid-container">
-				<div class="doc-card">
-					<img
-						src="https://a.ltrbxd.com/resized/sm/upload/le/gz/u0/ev/staricase-0-1000-0-1500-crop.jpg?v=136b662283"
-						alt="The Staircase Poster"
-						loading="lazy" />
-					<h4>The Staircase</h4>
-					<p>13 episodes later and still: owl or murder?</p>
+				<!--Doc 1-->
+				<div class="card" >
+					<img src="https://a.ltrbxd.com/resized/sm/upload/le/gz/u0/ev/staricase-0-1000-0-1500-crop.jpg?v=136b662283" alt="" class="card-img-top" alt="The Staircase Poster">
+					<div class="card-body">
+						<h4 class="card-title">The Staircase</h4>
+						<p class="card-text">
+							13 episodes later and still: owl or murder?
+						</p>
+					</div>
 				</div>
 
-				<div class="doc-card">
-					<img
-						src="https://a.ltrbxd.com/resized/film-poster/4/5/3/5/2/4/453524-wild-wild-country-0-1000-0-1500-crop.jpg?v=f25e74212c"
-						alt="Wild Wild Country Poster"
-						loading="lazy" />
-					<h4>Wild Wild Country</h4>
-					<p>Red clothes, a guru, and total chaos in Oregon.</p>
+				<!--Doc 2-->
+				<div class="card" >
+					<img src="https://a.ltrbxd.com/resized/film-poster/4/5/3/5/2/4/453524-wild-wild-country-0-1000-0-1500-crop.jpg?v=f25e74212c" alt=""
+						class="card-img-top" alt="The Wild Wild Country Poster">
+					<div class="card-body">
+						<h4 class="card-title">Wild Wild Country</h4>
+						<p class="card-text">
+							Red clothes, a guru, and total chaos in Oregon.
+						</p>
+					</div>
 				</div>
 
-				<div class="doc-card">
-					<img
-						src="https://a.ltrbxd.com/resized/film-poster/3/9/0/1/3/8/390138-the-keepers-0-1000-0-1500-crop.jpg?v=42f9987364"
-						alt="The Keepers Poster"
-						loading="lazy" />
-					<h4>The Keepers</h4>
-					<p>
-						A nun's murder, a cover-up, and a decades-long fight for
-						justice.
+				<!--Doc 3-->
+				<div class="card" >
+					<img src="https://a.ltrbxd.com/resized/film-poster/3/9/0/1/3/8/390138-the-keepers-0-1000-0-1500-crop.jpg?v=42f9987364" alt="The Keepers Poster" class="card-img-top">
+					<div class="card-body">
+						<h4 class="card-title">The Keepers</h4>
+						<p class="card-text">
+							A nun's murder, a cover-up, and a decades-long fight for justice.
 					</p>
+					</div>
+				</div>
+				
+				<!--Doc 4-->
+				<div class="card" >
+					<img src="https://a.ltrbxd.com/resized/film-poster/9/5/4/4/8/2/954482-victim-suspect-0-1000-0-1500-crop.jpg?v=7da7110467" alt="Victim / Suspect Poster" class="card-img-top">
+					<div class="card-body">
+						<h4 class="card-title">
+							Victim/Suspect
+						</h4>
+						<p class="card-text">
+							The system doesn't just fail - it accuses.
+						</p>
+					</div>
 				</div>
 
-				<div class="doc-card">
-					<img
-						src="https://a.ltrbxd.com/resized/film-poster/9/5/4/4/8/2/954482-victim-suspect-0-1000-0-1500-crop.jpg?v=7da7110467"
-						alt="Victim/Suspect Poster"
-						loading="lazy" />
-					<h4>Victim/Suspect</h4>
-					<p>The system doesn't just fail - it accuses.</p>
+				<!--Doc 5-->
+				<div class="card" >
+					<img src="https://a.ltrbxd.com/resized/sm/upload/81/ic/70/2l/9ytjMOMNh5pyxRAgkyXUoyvdzws-0-1000-0-1500-crop.jpg?v=ceb1fc9f3f" alt="The Jinx Poster" class="card-img-top">
+					<div class="card-body">
+						<h4 class="card-title">
+							The Jinx
+						</h4>
+						<p class="card-text">
+							A mic left on. The shocking ending in doc history.
+						</p>
+					</div>
 				</div>
 
-				<div class="doc-card">
-					<img
-						src="https://a.ltrbxd.com/resized/sm/upload/81/ic/70/2l/9ytjMOMNh5pyxRAgkyXUoyvdzws-0-1000-0-1500-crop.jpg?v=ceb1fc9f3f"
-						alt="The Jinx Poster"
-						loading="lazy" />
-					<h4>The Jinx</h4>
-					<p>A mic left on. The shocking ending in doc history.</p>
+				<!--Card 6-->
+				<div class="card" >
+					<img src="https://a.ltrbxd.com/resized/film-poster/2/6/1/6/4/1/261641-dream-killer-0-1000-0-1500-crop.jpg?v=3871673182" alt="Dream/Killer Poster" class="card-img-top">
+					<div class="card-body">
+						<h4 class="card-title">
+							Dream/Killer
+						</h4>
+						<p class="card-text">
+							When the justice system becomes the real villain.
+						</p>
+					</div>
 				</div>
 
-				<div class="doc-card">
-					<img
-						src="https://a.ltrbxd.com/resized/film-poster/2/6/1/6/4/1/261641-dream-killer-0-1000-0-1500-crop.jpg?v=3871673182"
-						alt="Dream/Killer Poster"
-						loading="lazy" />
-					<h4>Dream/Killer</h4>
-					<p>When the justice system becomes the real villain.</p>
+				<!--Doc 7-->
+				<div class="card" >
+					<img src="https://a.ltrbxd.com/resized/sm/upload/mw/cb/v8/cn/3WPzFYUtGjEydZfPgjt6mlnI22B-0-1000-0-1500-crop.jpg?v=918e5ca5f5" alt="Tabloid Poster" class="card-img-top">
+					<div class="card-body">
+						<h4 class="card-title">
+							Tabloid
+						</h4>
+						<p class="card-text">
+							A beauty queen. A kidnapping. A lot weird twists.
+						</p>
+					</div>
 				</div>
 
-				<div class="doc-card">
-					<img
-						src="https://a.ltrbxd.com/resized/sm/upload/mw/cb/v8/cn/3WPzFYUtGjEydZfPgjt6mlnI22B-0-1000-0-1500-crop.jpg?v=918e5ca5f5"
-						alt="Tabloid Poster"
-						loading="lazy" />
-					<h4>Tabloid</h4>
-					<p>A beauty queen. A kidnapping. A lot weird twists.</p>
+				<!--Doc 8-->
+				<div class="card" >
+					<img src="https://a.ltrbxd.com/resized/sm/upload/nz/ls/9j/bx/american%20m-0-1000-0-1500-crop.jpg?v=890d4489a7" alt="American Murder Poster" class="card-img-top">
+					<div class="card-body">
+						<h4 class="card-title">
+							American Murder
+						</h4>
+						<p class="card-text">
+							The social media nightmare that was all too real.
+						</p>
+					</div>
 				</div>
-
-				<div class="doc-card">
-					<img
-						src="https://a.ltrbxd.com/resized/sm/upload/nz/ls/9j/bx/american%20m-0-1000-0-1500-crop.jpg?v=890d4489a7"
-						alt="The American Murder Poster"
-						loading="lazy" />
-					<h4>The American Murder</h4>
-					<p>The social media nightmare that was all too real.</p>
-				</div>
-			</div>
+ 
+			<!--BUTTON CTA-->
 			<div class="btn-js">
 				<button class="letterboxed-link">
-					🎬 <br />
-					Full list on Letterboxed
+					More on Letterboxed
 				</button>
 			</div>
 		</section>
-		<hr />
+
+		<!--FOOTER-->
 		<footer>
 			<p>Made with obsession by Camilla C. 🍿</p>
-			<p>
-				<em>
-					Therapy not included. If you want more,
-					<a
-						href="https://boxd.it/zGlyo"
-						target="_blank"
-						rel="noopener noreferrer"
-						>click here.</a
-					>
-				</em>
-			</p>
 		</footer>
 	</body>
+
+	<!--Script-->
 	<script src="/index.js"></script>
 </html>
