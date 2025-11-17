@@ -6,6 +6,7 @@
 	--extra-color: #7b736e;
 	--card-bg: #ffffff;
 	--border: #dddad6;
+	--card-text-static: #3c3f44;
 	--font-title: "Plus Jakarta Sans", sans-serif;
 	--font-body: "DM Sans", sans-serif;
 }
@@ -35,18 +36,27 @@ html {
 }
 
 body {
+	background-color: var(--bg-color);
 	min-height: 100vh;
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Toogle Light/Dark Mode */
-input[type="checkbox"] {
+.theme-toggle {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+}
+
+/* Hide the actual checkbox */
+.theme-toggle input[type="checkbox"] {
 	height: 0;
 	width: 0;
 	visibility: hidden;
 }
 
-label {
+/* Track */
+.theme-toggle label {
 	cursor: pointer;
 	text-indent: -9999px;
 	width: 52px;
@@ -54,12 +64,11 @@ label {
 	background: grey;
 	display: block;
 	border-radius: 999px;
-	position: fixed;
-	top: 20px;
-	right: 20px;
+	position: relative;
 }
 
-label:after {
+/* Knob */
+.theme-toggle label:after {
 	content: "";
 	position: absolute;
 	top: 2px;
@@ -71,22 +80,25 @@ label:after {
 	transition: 0.3s;
 }
 
-input:checked + label {
+/* Checked state */
+.theme-toggle input:checked + label {
 	background: #2db92d;
 }
 
-input:checked + label:after {
+.theme-toggle input:checked + label:after {
 	left: calc(100% - 5px);
 	transform: translateX(-100%);
 }
 
-label:active:after {
+/* Pressed animation */
+.theme-toggle label:active:after {
 	width: 30px;
 }
 
 /*Title Section*/
 .title-section {
-	padding: 120px 15px 60px 15px;
+	padding: 100px 15px 15px 15px;
+	position: relative;
 }
 
 .title-section .intro-title {
@@ -108,7 +120,7 @@ label:active:after {
 	font-size: 20px;
 	font-weight: 300;
 	color: var(--text-color);
-	padding: 40px 0;
+	padding: 35px 0 15px 0;
 }
 
 /*Grid poster section */
@@ -122,6 +134,21 @@ label:active:after {
 	max-width: 1100px;
 	gap: 24px;
 	margin: 0 auto;
+}
+
+/* Section Divider */
+.section-divider {
+	border: 0;
+	height: 1px;
+	background: linear-gradient(
+		to right,
+		transparent,
+		var(--accent-color),
+		transparent
+	);
+	margin: 48px auto 32px;
+	max-width: 500px;
+	opacity: 0.9;
 }
 
 /* Cards */
@@ -140,8 +167,8 @@ label:active:after {
 }
 
 /* Poster */
-.doc-trid .card-img-top {
-	aspect-ratio: 2/3;
+.doc-grid .card-img-top {
+	aspect-ratio: 2 / 3;
 	object-fit: cover;
 }
 
@@ -150,6 +177,7 @@ label:active:after {
 	padding: 14px 14px 18px;
 	display: flex;
 	flex-direction: column;
+	color: var(--card-text-static);
 	gap: 6px;
 }
 
@@ -160,7 +188,7 @@ label:active:after {
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
-	color: var(--title-color);
+	color: var(--card-text-static);
 	margin-bottom: 2px;
 }
 
@@ -170,7 +198,7 @@ label:active:after {
 	font-size: 0.9rem;
 	font-weight: 400;
 	line-height: 1.5;
-	color: var(--text-color);
+	color: var(--card-text-static);
 }
 
 /* Hover */
@@ -187,146 +215,170 @@ label:active:after {
 
 /* Button CTA */
 .button-cta {
-	display: flex;
-	justify-content: center;
+	margin: 48px 0 32px;
+	text-align: center;
+}
+
+.btn-doc {
+	display: inline-flex;
 	align-items: center;
-}
-
-button {
-	padding: 1em 2em;
-	background-color: #161a20;
-	border: none;
-	color: #f0f0f0;
-	border-radius: 1000px;
-	font-family: var(--font-title);
-}
-
-/*
-.btn-js {
-	margin: 0;
-	padding: 80px 0 10px 0;
-}
-.letterboxed-link {
-	font-family: var(--font-headings);
-	text-transform: uppercase;
-	font-size: 18px;
-	font-weight: 600;
-	letter-spacing: 1.2px;
-	display: flex;
 	justify-content: center;
-	align-items: center;
-	width: max-content;
-	background: var(--accent-color);
-	color: #fff;
-	padding: 20px 28px;
-	margin: 50px auto 60px auto;
-	border: none;
-	border-radius: 18px;
-	text-decoration: none;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-	transition: background 0.3s ease, transform 0.2s ease;
-	cursor: pointer;
-}
-
-.letterboxed-link:hover {
-	background: linear-gradient(135deg, var(--link-color), var(--accent-color));
-	transform: translateY(-2px);
-	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-}
-
-footer {
 	font-family: var(--font-body);
-	font-size: 16px;
-	line-height: 1.4;
-	background-color: var(--card-bg);
-	margin: 0;
-	padding: 0;
+	font-size: 0.95rem;
+	font-weight: 500;
+
+	border-radius: 999px;
+	background-color: var(--extra-color);
+	color: var(--bg-color);
+	border: 1px solid var(--extra-color);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding: 1rem 2rem;
+	margin: 0 0 30px 0;
+	transition: background-color 0.2s ease-out, color 0.2s ease-out,
+		transform 0.12s ease-out, box-shadow 0.18s ease-out,
+		border-color 0.2s ease-out;
+}
+.btn-doc:hover {
+	background-color: var(--accent-color);
+	border-color: var(--accent-color);
+	color: var(--bg-color);
+	transform: translateY(-1px);
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
 }
 
-footer a {
-	text-decoration: none;
-	color: var(--accent-color);
-	font-weight: 600;
+.btn-doc:active {
+	transform: translateY(0);
+	box-shadow: none;
+}
+
+/* Line */
+hr {
+	border: 0;
+	height: 1px;
+	background-color: var(--border);
+	margin: 40px auto;
+	max-width: 1100px;
+	opacity: 1;
+}
+
+/* Footer */
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem 0;
 }
 
 footer p {
-	padding: 0;
 	margin: 0;
+	font-family: var(--font-body);
+	font-size: 14px;
+	color: var(--extra-color);
+	font-weight: 400;
 }
 
-button.theme-toggle {
-	position: fixed;
-	top: 20px;
-	right: 20px;
-	z-index: 1000;
-	padding: 10px 16px;
-	border: none;
-	border-radius: 20px;
-	background-color: var(--accent-color);
-	color: #fff;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
+footer a {
+	color: var(--extra-color);
+	text-decoration: none;
+	font-weight: 500;
 }
 
-button.theme-toggle:hover {
-	background-color: var(--link-color);
+footer a:hover {
+	color: green;
 }
 
-/*📱 Responsive Enhhancements 📱
+/* ======== RESPONSIVE ======== */
+
+/*Tablets and down (<= 768px)*/
 @media (max-width: 768px) {
-	h1 {
-		font-size: 48px;
+	/* Title section */
+	.title-section {
+		padding: 80px 16px 10px 16px;
 	}
 
-	h2 {
-		font-size: 20px;
+	.title-section .intro-title {
+		font-size: 40px;
 	}
 
-	.grid-container {
+	.title-section .intro-subheading {
+		font-size: 15px;
+	}
+
+	.title-section .intro-text {
+		font-size: 17px;
+		padding: 24px 0 10px 0;
+	}
+
+	/* Grid spacing */
+	.doc-grid {
+		padding: 40px 16px;
+	}
+
+	.doc-grid .grid-container {
 		gap: 16px;
 	}
 
-	.doc-card img {
-		height: 200px;
+	/* Cards */
+	.doc-grid .card {
+		max-width: 100%;
 	}
 
-	.letterboxed-link {
-		font-size: 16px;
-		padding: 12px 20px;
+	/* Button */
+	.button-cta {
+		margin: 32px 0 24px;
+	}
+
+	.btn-doc {
+		padding: 0.8rem 1.6rem;
+		font-size: 0.9rem;
+		letter-spacing: 0.08em;
 	}
 }
 
+/* Small phones (<= 480px) */
 @media (max-width: 480px) {
-	body {
-		padding: 24px 16px;
+	/* Title section tighter */
+	.title-section {
+		padding: 70px 14px 8px 14px;
 	}
 
-	h1 {
-		font-size: 36px;
+	.title-section .intro-title {
+		font-size: 32px;
 	}
 
-	h2 {
-		font-size: 18px;
-	}
-
-	h3 {
-		font-size: 16px;
-	}
-
-	p {
-		font-size: 16px;
-	}
-
-	.doc-card h4 {
-		font-size: 18px;
-	}
-
-	.doc-card p {
+	.title-section .intro-subheading {
 		font-size: 14px;
 	}
 
-	.letterboxed-link {
-		font-size: 14px;
-		padding: 10px 16px;
+	.title-section .intro-text {
+		font-size: 16px;
 	}
-}*/
+
+	/* Grid: keep columns but with more breathing space */
+	.doc-gri {
+		padding: 32px 12px;
+	}
+
+	.doc-grid .grid-container {
+		grid-template-columns: 1fr;
+		max-width: 100%;
+	}
+
+	/* Cards full width on very small screens */
+	.doc-grid .card {
+		max-width: 100%;
+	}
+
+	/* Button full-ish widht */
+	.btn-doc {
+		width: 100%;
+		max-width: 320px;
+		padding: 0.9rem 1.4rem;
+	}
+
+	.button-cta {
+		display: flex;
+		justify-content: center;
+	}
+}
