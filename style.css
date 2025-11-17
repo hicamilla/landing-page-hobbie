@@ -322,6 +322,7 @@ footer a:hover {
 	/* Cards */
 	.doc-grid .card {
 		max-width: 100%;
+		margin-bottom: 0;
 	}
 
 	/* Button */
@@ -356,13 +357,13 @@ footer a:hover {
 	}
 
 	/* Grid: keep columns but with more breathing space */
-	.doc-gri {
+	.doc-grid {
 		padding: 32px 12px;
 	}
 
 	.doc-grid .grid-container {
 		grid-template-columns: 1fr;
-		max-width: 100%;
+		gap: 12px;
 	}
 
 	/* Cards full width on very small screens */
